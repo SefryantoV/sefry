@@ -2,23 +2,35 @@
 
 class contohstatic
 {
-    public static $nama = "nama variable";
+    public static $nama = ["Sefry", "Ricardo", "Stenly"];
+
+    public static $index = 1;
 
     public static function all ()
     {
-        echo "ini contoh function static";
+        $index = 1;
+
+        foreach (self::$nama as $na)
+        {
+            echo $index++ .".".$na . "<br>";
+        }
+    }
+
+    public function display ()
+    {
+        echo self::all();
     }
 }
 
 class substatic extends contohstatic
 {
-    
+
 }
 
 
-echo contohstatic::$nama;
-
-echo contohstatic::$nama;
 
 echo "<br>";
-echo contohstatic::$all();
+
+$obj2 = new substatic();
+
+echo $obj2->display();
